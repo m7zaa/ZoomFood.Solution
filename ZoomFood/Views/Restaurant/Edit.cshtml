@@ -1,0 +1,30 @@
+@model ZoomFood.Models.Restaurant;
+@{
+    ViewData["Title"] = "Edit "+ @Model.Name;
+    Layout = "_Layout";
+}
+
+<h3>Edit @Model.Name</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Cuisine)
+    @Html.DropDownList("CuisineId")
+
+    @Html.HiddenFor(model => model.RestaurantId)
+
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
+
+    @Html.LabelFor(model => model.PriceRating)
+    @Html.TextBoxFor(model => model.PriceRating)
+
+    @Html.LabelFor(model => model.Latitude)
+    @Html.TextBoxFor(model => model.Latitude)
+
+    @Html.LabelFor(model => model.Longitude)
+    @Html.TextBoxFor(model => model.Longitude)
+    <input type="submit" value="Save Changes" />
+}
+
+<p>@Html.ActionLink("Go back to all restaurants", "Index")</p>

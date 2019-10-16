@@ -1,0 +1,31 @@
+@using ZoomFood.Models;
+@model ZoomFood.Models.Restaurant;
+@{
+    ViewData["Title"] = @Model.Name;
+    Layout = "_Layout";
+}
+
+<h1>@Model.Name</h1>
+<h3>@Model.Cuisine.Name</h3>
+<h4>@Model.PriceRating</h4>
+<p>@Model.Latitude,@Model.Longitude</p>
+
+<h3>Menu Items:</h3>
+@if(@Model.MenuItems.Count == 0)
+{
+    <p>The menu is currently unavailable at this time. Please come into our restaurant to see the menu in person.</p>
+}
+else
+{
+    <ul>
+    @foreach(MenuItem menuItem in @Model.MenuItems)
+    {
+        <li>@Html.ActionLink($"{@menuItem.Name}", "Details", "MenuItem") | @menuItem.Price</li>
+    }
+    </ul>
+}
+<p>Is a menu item missing? Add one @Html.ActionLink("here", "Create","MenuItem")</p>
+
+<p>@Html.ActionLink("Restaurant List", "Index")</p>
+<p>@Html.ActionLink("Cuisine List", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

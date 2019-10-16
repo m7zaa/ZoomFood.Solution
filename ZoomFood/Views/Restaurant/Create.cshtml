@@ -1,0 +1,28 @@
+@{
+    ViewData["Title"] = "Add a Restaurant";
+    Layout = "_Layout";
+}
+
+@model ZoomFood.Models.Restaurant;
+<h3>Add a new Restaurant</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Cuisine)
+    @Html.DropDownList("CuisineId")
+
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
+
+    @Html.LabelFor(model => model.PriceRating)
+    @Html.TextBoxFor(model => model.PriceRating)
+
+    @Html.LabelFor(model => model.Latitude)
+    @Html.TextBoxFor(model => model.Latitude)
+
+    @Html.LabelFor(model => model.Longitude)
+    @Html.TextBoxFor(model => model.Longitude)
+    <input type="submit" value="Add new restaurant" />
+}
+
+<p>@Html.ActionLink("Go back to all restaurants", "Index")</p>
