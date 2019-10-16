@@ -1,5 +1,5 @@
 @{
-    ViewData["Title"] = "Add a Restaurant";
+    ViewData["Title"] = "Add a Menu Item";
     Layout = "_Layout";
 }
 
@@ -31,7 +31,7 @@
     <p>Organic: </p>@Html.CheckBoxFor(model => model.IsOrganic)
     <p>Contains GMO: </p>@Html.CheckBoxFor(model => model.HasGMOs)
 
-    <input type="submit" value="Add new restaurant" />
+    <input type="submit" value="Add new menu item" />
 }
 
 <p>@Html.ActionLink("Go back to all restaurants", "Index")</p>
