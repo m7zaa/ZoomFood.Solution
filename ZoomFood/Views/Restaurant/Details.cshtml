@@ -26,6 +26,7 @@ else
 }
 <p>Is a menu item missing? Add one @Html.ActionLink("here", "Create","MenuItem")</p>
 
+<p>@Html.ActionLink("Remove Restaurant", "Delete", new {id = @Model.RestaurantId })</p>
 <p>@Html.ActionLink("Restaurant List", "Index")</p>
 <p>@Html.ActionLink("Cuisine List", "Index")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>
