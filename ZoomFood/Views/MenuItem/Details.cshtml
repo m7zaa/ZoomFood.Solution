@@ -1,0 +1,12 @@
+@using ZoomFood.Models;
+@model ZoomFood.Models.MenuItem;
+@{
+    ViewData["Title"] = @Model.Name;
+    Layout = "_Layout";
+}
+
+<h1>@Model.Name</h1>
+<h4>@Model.Price</h4>
+<h4>@Model.Description</h4>
+<h4>@Model.Calories</h4>
+

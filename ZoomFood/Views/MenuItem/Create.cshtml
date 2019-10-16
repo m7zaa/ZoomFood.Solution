@@ -1,0 +1,37 @@
+@{
+    ViewData["Title"] = "Add a Restaurant";
+    Layout = "_Layout";
+}
+
+@model ZoomFood.Models.MenuItem;
+<h3>Add a new MenuItem</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Restaurant)
+    @Html.DropDownList("RestaurantId")
+
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
+
+    @Html.LabelFor(model => model.Price)
+    @Html.TextBoxFor(model => model.Price)
+
+    @Html.LabelFor(model => model.Description)
+    @Html.TextBoxFor(model => model.Description)
+
+    @Html.LabelFor(model => model.Calories)
+    @Html.TextBoxFor(model => model.Calories)
+
+<h6>Characteristics</h6>
+    <p>Spicy: </p>@Html.CheckBoxFor(model => model.IsSpicy)
+    <p>Gluten Free: </p>@Html.CheckBoxFor(model => model.IsGlutenFree)
+    <p>Vegan: </p>@Html.CheckBoxFor(model => model.IsVegan)
+    <p>Vegetarian: </p>@Html.CheckBoxFor(model => model.IsVegetarian)
+    <p>Organic: </p>@Html.CheckBoxFor(model => model.IsOrganic)
+    <p>Contains GMO: </p>@Html.CheckBoxFor(model => model.HasGMOs)
+
+    <input type="submit" value="Add new restaurant" />
+}
+
+<p>@Html.ActionLink("Go back to all restaurants", "Index")</p>
