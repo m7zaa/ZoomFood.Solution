@@ -1,5 +1,6 @@
 using System.Collections.Generic;
-
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 namespace ZoomFood.Models
 {
     public class Restaurant
@@ -9,7 +10,10 @@ namespace ZoomFood.Models
         public int PriceRating { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
+        [Required]
         public int CuisineId { get; set; }
+        
+        [ForeignKey("CuisineId")]
         public virtual Cuisine Cuisine { get; set; }
 
         public virtual ICollection<MenuItem> MenuItems { get; set; }

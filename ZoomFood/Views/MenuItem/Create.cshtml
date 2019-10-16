@@ -5,11 +5,10 @@
 
 @model ZoomFood.Models.MenuItem;
 <h3>Add a new MenuItem</h3>
-
+<p>@ViewBag.RestaurantId</p>
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.Restaurant)
-    @Html.DropDownList("RestaurantId")
+    <input type="hidden" id="RestaurantId" name="RestaurantId" value="@ViewBag.RestaurantId" />
 
     @Html.LabelFor(model => model.Name)
     @Html.TextBoxFor(model => model.Name)

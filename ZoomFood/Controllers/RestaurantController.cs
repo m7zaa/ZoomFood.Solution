@@ -17,12 +17,13 @@ namespace ZoomFood.Controllers
 
         public ActionResult Index()
         {
-            List<Restaurant> model = _db.Restaurants.ToList();
+            List<Restaurant> model = _db.Restaurants.Include(restaurant => restaurant.Cuisine).ToList();
             return View(model);
         }
 
         public ActionResult Create()
         {
+            ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Name");
             return View();
         }
         [HttpPost]
@@ -60,9 +61,10 @@ namespace ZoomFood.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+        [Route("/Restaurant/Details/{id}")]
         public ActionResult Details(int id)
         {
-            Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.RestaurantId == id);
+            Restaurant thisRestaurant = _db.Restaurants.Include(restaurant => restaurant.Cuisine).Include(restaurant => restaurant.MenuItems).FirstOrDefault(restaurants => restaurants.RestaurantId == id);
             return View(thisRestaurant);
         }
     }

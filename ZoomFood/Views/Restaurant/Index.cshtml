@@ -2,14 +2,14 @@
     ViewData["Title"] = "Restaurants";
     Layout = "_Layout";
 }
-<h1>Restaurants</h1>
 @using ZoomFood.Models;
 @model List<ZoomFood.Models.Restaurant>;
-    <ul>
-@foreach(Restaurant restaurant in Model)
-{
-    <li>@Html.ActionLink($"{@restaurant.Name}", "Details", new  { id = restaurant.RestaurantId }) | @restaurant.Cuisine.Name | @restaurant.PriceRating</li>
-};
+<h1>Restaurants</h1>
+<ul>
+    @foreach(Restaurant restaurant in Model)
+    {
+        <li>@Html.ActionLink($"{restaurant.Name}", "Details", new  { id = restaurant.RestaurantId }) | @restaurant.Cuisine.Name | @restaurant.PriceRating</li>
+    }
 </ul>
 
 <p>Is your restaurant missing? Add one @Html.ActionLink("here", "Create")!</p>

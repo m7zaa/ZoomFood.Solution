@@ -10,7 +10,7 @@ namespace ZoomFood.Controllers
     public class MenuItemController : Controller
     {
         private readonly ZoomFoodContext _db;
-        
+
         public MenuItemController(ZoomFoodContext db)
         {
             _db = db;
@@ -21,9 +21,10 @@ namespace ZoomFood.Controllers
         //     List<Restaurant> model = _db.Restaurants.ToList();
         //     return View(model);
         // }
-
-        public ActionResult Create()
+        [HttpGet("MenuItem/Create/{restaurantId}")]
+        public ActionResult Create(int restaurantId)
         {
+            ViewBag.RestaurantId = restaurantId;
             return View();
         }
         [HttpPost]
@@ -31,20 +32,20 @@ namespace ZoomFood.Controllers
         {
             _db.MenuItems.Add(menuItem);
             _db.SaveChanges();
-            int restaurantId = menuItem.RestaurantId;
-            return RedirectToAction("Details", "Restaurant", restaurantId);
+            int id = menuItem.RestaurantId;
+            return RedirectToAction("Details", "Restaurant", id);
         }
 
         public ActionResult Delete(int id)
         {
-            MenuItem thisMenuItem = _db.MenuItems.FirstOrDefault(menuItem => menuItem.ItemId == id);
+            MenuItem thisMenuItem = _db.MenuItems.FirstOrDefault(menuItem => menuItem.MenuItemId == id);
             return View(thisMenuItem);
         }
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            MenuItem thisMenuItem = _db.MenuItems.FirstOrDefault(menuItem => menuItem.ItemId == id);
+            MenuItem thisMenuItem = _db.MenuItems.FirstOrDefault(menuItem => menuItem.MenuItemId == id);
             int restaurantId = thisMenuItem.RestaurantId;
             _db.MenuItems.Remove(thisMenuItem);
             _db.SaveChanges();
@@ -52,7 +53,7 @@ namespace ZoomFood.Controllers
         }
         public ActionResult Edit(int id)
         {
-            MenuItem thisMenuItem = _db.MenuItems.FirstOrDefault(menuItem => menuItem.ItemId == id);
+            MenuItem thisMenuItem = _db.MenuItems.FirstOrDefault(menuItem => menuItem.MenuItemId == id);
             ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Name");
             return View(thisMenuItem);
         }
@@ -66,7 +67,7 @@ namespace ZoomFood.Controllers
         }
         public ActionResult Details(int id)
         {
-            MenuItem thisMenuItem = _db.MenuItems.FirstOrDefault(menuItem => menuItem.ItemId == id);
+            MenuItem thisMenuItem = _db.MenuItems.FirstOrDefault(menuItem => menuItem.MenuItemId == id);
             return View(thisMenuItem);
         }
     }
