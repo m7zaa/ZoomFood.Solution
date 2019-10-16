@@ -9,6 +9,9 @@ namespace ZoomFood.Models
         public int PriceRating { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
+        public int CuisineId { get; set; }
+        public virtual Cuisine Cuisine { get; set; }
+
         public virtual ICollection<MenuItem> MenuItems { get; set; }
 
         public Restaurant()

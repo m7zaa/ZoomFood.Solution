@@ -13,6 +13,7 @@ namespace ZoomFood.Models
         public bool IsOrganic { get; set; }
         public bool HasGMOs { get; set; }
         public int Calories { get; set; }
-
+        public int RestaurantId { get; set; }
+        public virtual Restaurant Restaurant { get; set; }
     }
 }
