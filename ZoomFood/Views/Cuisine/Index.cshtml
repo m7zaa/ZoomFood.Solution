@@ -1,0 +1,16 @@
+@{
+    ViewData["Title"] = "Cuisine List";
+    Layout = "_Layout";
+}
+<h1>Cuisine List</h1>
+@using ZoomFood.Models;
+@model List<ZoomFood.Models.Cuisine>;
+    <ul>
+@foreach(Cuisine cuisine in Model)
+{
+    <li>@Html.ActionLink($"{@cuisine.Name}", "Details", new  { id = cuisine.CuisineId }) | @Html.ActionLink("Remove", "Delete", new  { id = cuisine.CuisineId })</li>
+};
+</ul>
+
+<p>Is your cuisine missing? Add one @Html.ActionLink("here", "Create")!</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
