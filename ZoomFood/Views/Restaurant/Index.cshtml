@@ -8,7 +8,7 @@
 <ul>
     @foreach(Restaurant restaurant in Model)
     {
-        <li>@Html.ActionLink($"{restaurant.Name}", "Details", new  { id = restaurant.RestaurantId }) | @restaurant.Cuisine.Name | @restaurant.PriceRating</li>
+        <li>@Html.ActionLink($"{restaurant.Name}", "Details", new  { id = restaurant.RestaurantId }) | @restaurant.Cuisine.Name | @await Html.PartialAsync("PriceRating", restaurant.PriceRating)</li>
     }
 </ul>
 

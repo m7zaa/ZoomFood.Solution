@@ -7,27 +7,7 @@
 
 <h1>@Model.Name</h1>
 <h6><em>@Model.Cuisine.Name</em></h6>
-<h4>Price Rating:
-@if(@Model.PriceRating == 1)
-{
-    <img class="droneRating" src="~/img/drone.png">
-}
-@if(@Model.PriceRating == 2)
-{
-    <img class="droneRating" src="~/img/drone.png"><img class="droneRating" src="~/img/drone.png">
-}
-@if(@Model.PriceRating == 3)
-{
-    <img class="droneRating" src="~/img/drone.png"><img class="droneRating" src="~/img/drone.png"><img class="droneRating" src="~/img/drone.png">
-}
-@if(@Model.PriceRating == 4)
-{
-    <img class="droneRating" src="~/img/drone.png"><img class="droneRating" src="~/img/drone.png"><img class="droneRating" src="~/img/drone.png"><img class="droneRating" src="~/img/drone.png">
-}
-@if(@Model.PriceRating == 5)
-{
-    <img class="droneRating" src="~/img/drone.png"><img class="droneRating" src="~/img/drone.png"><img class="droneRating" src="~/img/drone.png"><img class="droneRating" src="~/img/drone.png"><img class="droneRating" src="~/img/drone.png">
-}
+<h4>Price Rating: @await Html.PartialAsync("PriceRating", Model.PriceRating)
 </h4>
 
 <h3>Menu Items:</h3>

@@ -33,13 +33,30 @@ namespace ZoomFood.Controllers
             return View(model);
         }
 
+        [HttpGet("/Restaurant/Create")]
         public ActionResult Create()
         {
             ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Name");
             return View();
         }
-        [HttpPost]
+
+        [HttpGet("/Cuisine/{id}/Restaurant/Create", Name="CuisineRestaurant")]
+        public ActionResult Create(int id)
+        {
+            ViewBag.CuisineId = new SelectList(new List<Cuisine>{_db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id)}, "CuisineId", "Name");
+            return View();
+        }
+
+        [HttpPost("/Restaurant/Create")]
         public ActionResult Create(Restaurant restaurant)
+        {
+            _db.Restaurants.Add(restaurant);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost("/Cuisine/{cuisineId}/Restaurant/Create")]
+        public ActionResult Create(int cuisineId, Restaurant restaurant)
         {
             _db.Restaurants.Add(restaurant);
             _db.SaveChanges();
