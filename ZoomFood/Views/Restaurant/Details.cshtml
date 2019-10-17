@@ -20,7 +20,7 @@ else
     <ul>
     @foreach(MenuItem menuItem in @Model.MenuItems)
     {
-        <li>@Html.ActionLink($"{@menuItem.Name}", "Details", "MenuItem") | $ @menuItem.Price</li>
+        <li>@Html.ActionLink($"{@menuItem.Name}", "Details", "MenuItem", new {id = @menuItem.MenuItemId }) | $ @menuItem.Price</li>
     }
     </ul>
 }
@@ -29,4 +29,3 @@ else
 <p>@Html.ActionLink("Remove Restaurant", "Delete", new {id = @Model.RestaurantId })</p>
 <p>@Html.ActionLink("Restaurant List", "Index")</p>
 <p>@Html.ActionLink("Cuisine List", "Index")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>

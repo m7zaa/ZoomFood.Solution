@@ -67,7 +67,7 @@ namespace ZoomFood.Controllers
         }
         public ActionResult Details(int id)
         {
-            MenuItem thisMenuItem = _db.MenuItems.FirstOrDefault(menuItem => menuItem.MenuItemId == id);
+            MenuItem thisMenuItem = _db.MenuItems.Include(item => item.Restaurant).FirstOrDefault(menuItem => menuItem.MenuItemId == id);
             return View(thisMenuItem);
         }
     }

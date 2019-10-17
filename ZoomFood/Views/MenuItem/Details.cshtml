@@ -6,9 +6,9 @@
 }
 
 <h1>@Model.Name</h1>
-<h4>@Model.Price</h4>
+<h4>$@Model.Price</h4>
 <h4>@Model.Description</h4>
-<h4>@Model.Calories</h4>
+<h6>@Model.Calories calories</h6>
 
 @if(@Model.IsSpicy)
 {
@@ -16,7 +16,7 @@
 }
 @if(@Model.IsGlutenFree)
 {
-    <img src="~/img/glutenfree.jpg">
+    <img src="~/img/glutenfree.png">
 }
 @if(@Model.IsVegan)
 {
@@ -24,15 +24,15 @@
 }
 @if(@Model.IsVegetarian)
 {
-    <img src="~/img/vegetarian.jpg">
+    <img src="~/img/vegetarian.png">
 }
 @if(@Model.IsOrganic)
 {
-    <img src="~/img/organic.jpg">
+    <img src="~/img/organic.png">
 }
 @if(!@Model.HasGMOs)
 {
-    <img src="~/img/gmofree.jpg">
+    <img src="~/img/gmofree.jpeg">
 }
 
-@Html.ActionLink("Go Back to @Model.Restaurant.Name", "Details", "Restaurant", new { id = @Model.RestaurantId })
+@Html.ActionLink("Go Back to " + Model.Restaurant.Name, "Details", "Restaurant", new { id = @Model.RestaurantId })
