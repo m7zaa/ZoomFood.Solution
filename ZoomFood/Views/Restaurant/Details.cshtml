@@ -7,8 +7,27 @@
 
 <h1>@Model.Name</h1>
 <h3>@Model.Cuisine.Name</h3>
-<h4>@Model.PriceRating</h4>
-<p>@Model.Latitude,@Model.Longitude</p>
+<h4>Price Rating:</h4>
+@if(@Model.PriceRating == 1)
+{
+    <img src="~/img/drone.png">
+}
+@if(@Model.PriceRating == 2)
+{
+    <img src="~/img/drone.png"><img src="~/img/drone.png">
+}
+@if(@Model.PriceRating == 3)
+{
+    <img src="~/img/drone.png"><img src="~/img/drone.png"><img src="~/img/drone.png">
+}
+@if(@Model.PriceRating == 4)
+{
+    <img src="~/img/drone.png"><img src="~/img/drone.png"><img src="~/img/drone.png"><img src="~/img/drone.png">
+}
+@if(@Model.PriceRating == 5)
+{
+    <img src="~/img/drone.png"><img src="~/img/drone.png"><img src="~/img/drone.png"><img src="~/img/drone.png"><img src="~/img/drone.png">
+}
 
 <h3>Menu Items:</h3>
 @if(@Model.MenuItems.Count == 0)
@@ -27,5 +46,4 @@ else
 <p>Is a menu item missing? Add one @Html.ActionLink("here", "Create","MenuItem", new { id = Model.RestaurantId })</p>
 
 <p>@Html.ActionLink("Remove Restaurant", "Delete", new {id = @Model.RestaurantId })</p>
-<p>@Html.ActionLink("Restaurant List", "Index")</p>
-<p>@Html.ActionLink("Cuisine List", "Index")</p>
+<p>@Html.ActionLink("Edit Restaurant", "Edit", new {id = @Model.RestaurantId })</p>

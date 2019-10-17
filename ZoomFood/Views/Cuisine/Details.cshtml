@@ -1,0 +1,14 @@
+@using ZoomFood.Models;
+@model ZoomFood.Models.Cuisine;
+@{
+    ViewData["Title"] = @Model.Name;
+    Layout = "_Layout";
+}
+<h1>@Model.Name</h1>
+<ul>
+    @foreach(Restaurant restaurant in Model.Restaurants)
+    {
+        <li>@Html.ActionLink($"{restaurant.Name}", "Details", new  { id = restaurant.RestaurantId }) | @restaurant.PriceRating</li>
+    }
+</ul>
+

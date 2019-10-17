@@ -5,7 +5,6 @@
 
 @model ZoomFood.Models.MenuItem;
 <h3>Add a new MenuItem</h3>
-<p>@ViewBag.RestaurantId</p>
 @using (Html.BeginForm())
 {
     <input type="hidden" id="RestaurantId" name="RestaurantId" value="@ViewBag.RestaurantId" />
@@ -30,7 +29,7 @@
     <p>Organic: </p>@Html.CheckBoxFor(model => model.IsOrganic)
     <p>Contains GMO: </p>@Html.CheckBoxFor(model => model.HasGMOs)
 
-    <input type="submit" value="Add new menu item" />
+    <p><input type="submit" value="Add new menu item" /></p>
 }
 
-<p>@Html.ActionLink("Go back to all restaurants", "Index")</p>
+@Html.ActionLink("Go Back", "Details", "Restaurant", new { id = @ViewBag.RestaurantId })
