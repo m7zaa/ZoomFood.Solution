@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using ZoomFood.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -18,6 +19,17 @@ namespace ZoomFood.Controllers
         public ActionResult Index()
         {
             List<Restaurant> model = _db.Restaurants.Include(restaurant => restaurant.Cuisine).ToList();
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Index (string search)
+        {
+           List<Restaurant> model = _db.Restaurants.Include(restaurant => restaurant.Cuisine).ToList();
+           if(!String.IsNullOrEmpty(search))
+           {
+               model = model.Where(restaurant => restaurant.Name.ToLower().Contains(search.ToLower())).Select(restaurant => restaurant).ToList();
+           }
             return View(model);
         }
 

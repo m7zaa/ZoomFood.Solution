@@ -1,3 +1,23 @@
 body {
     background-color: paleturquoise;
+    font-family: 'Graduate', cursive;
+}
+.droneRating {
+    width: 30px;
+}
+
+.home-header {
+    background-color: darkcyan;
+    padding: 0;
+    margin: 0;
+}
+
+#drone-pic {
+}
+
+#home-drone {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
 }

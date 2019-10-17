@@ -20,5 +20,16 @@ namespace ZoomFood.Controllers
         {
             return View();
         }
+
+        [HttpPost(Name ="Restaurant")]
+        public ActionResult RestaurantSearch(string search)
+        {
+            return RedirectToAction("Index", "Restaurant", search);
+        }
+        // [HttpPost("/", Name ="Restaurant")]
+        // public ActionResult RestaurantSearch(string search)
+        // {
+        //     return RedirectToAction("Index", "Restaurant", search);
+        // }
     }
 }

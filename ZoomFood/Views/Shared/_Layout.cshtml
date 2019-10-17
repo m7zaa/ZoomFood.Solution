@@ -17,6 +17,7 @@
     </environment>
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/styles.css" />
+    <link href="https://fonts.googleapis.com/css?family=Graduate&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -42,10 +43,10 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" href="\Privacy">Privacy</a>
                         </li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
+                    <form class="form-inline my-2 my-lg-0" method="post" action="/">
                         <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-lg btn-outline-success my-2 my-sm-0" asp-page-handler="Cuisine" type="submit"><img class="searchImg" src="~/img/cuisine.png" alt="Cuisine"></button>
-                        <button class="btn btn-lg btn-outline-success my-2 my-sm-0" asp-page-handler="Restaurant" type="submit"><img class="searchImg" src="~/img/restaurant.png" alt="Restaurant"></button>
+                        <button class="btn btn-lg btn-outline-success my-2 my-sm-0" formaction="Cuisine" type="submit"><img class="searchImg" src="~/img/cuisine.png" alt="Cuisine"></button>
+                        <button class="btn btn-lg btn-outline-success my-2 my-sm-0" formaction="/Restaurant"  type="submit"><img class="searchImg" src="~/img/restaurant.png" alt="Restaurant"></button>
                     </form>
                 </div>
             </div>
