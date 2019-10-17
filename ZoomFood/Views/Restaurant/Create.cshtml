@@ -8,20 +8,30 @@
 
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.Cuisine)
-    @Html.DropDownList("CuisineId") <br>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Cuisine)
+        @Html.DropDownList("CuisineId") 
+    </div>
 
-    @Html.LabelFor(model => model.Name)
-    @Html.TextBoxFor(model => model.Name) <br>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name) 
+    </div>
 
-    @Html.LabelFor(model => model.PriceRating)
-    @Html.TextBoxFor(model => model.PriceRating) <br>
+    <div class="form-group">
+        @Html.LabelFor(model => model.PriceRating)
+        @Html.TextBoxFor(model => model.PriceRating) 
+    </div>
 
-    @Html.LabelFor(model => model.Latitude)
-    @Html.TextBoxFor(model => model.Latitude) <br>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Latitude)
+        @Html.TextBoxFor(model => model.Latitude) 
+    </div>
 
-    @Html.LabelFor(model => model.Longitude)
-    @Html.TextBoxFor(model => model.Longitude) <br>
+    <div class="form-group"> 
+        @Html.LabelFor(model => model.Longitude)
+        @Html.TextBoxFor(model => model.Longitude) 
+    </div>
     <input type="submit" value="Add new restaurant" />
 }
 

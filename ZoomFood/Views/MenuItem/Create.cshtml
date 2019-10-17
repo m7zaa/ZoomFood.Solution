@@ -9,19 +9,27 @@
 {
     <input type="hidden" id="RestaurantId" name="RestaurantId" value="@ViewBag.RestaurantId" />
 
-    @Html.LabelFor(model => model.Name)
-    @Html.TextBoxFor(model => model.Name)
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name) 
+    </div>
 
-    @Html.LabelFor(model => model.Price)
-    @Html.TextBoxFor(model => model.Price)
+    <div class="form-group">
+        @Html.LabelFor(model => model.Price)
+        @Html.TextBoxFor(model => model.Price) 
+    </div>
 
-    @Html.LabelFor(model => model.Description)
-    @Html.TextBoxFor(model => model.Description)
+    <div class="form-group">
+        @Html.LabelFor(model => model.Description)
+        @Html.TextBoxFor(model => model.Description) 
+    </div>
 
-    @Html.LabelFor(model => model.Calories)
-    @Html.TextBoxFor(model => model.Calories)
+    <div class="form-group">
+        @Html.LabelFor(model => model.Calories)
+        @Html.TextBoxFor(model => model.Calories)
+    </div>
 
-<h6>Characteristics</h6>
+<h6>Characteristics:</h6>
     <p>Spicy: @Html.CheckBoxFor(model => model.IsSpicy)
     Gluten Free: @Html.CheckBoxFor(model => model.IsGlutenFree)
     Vegan: @Html.CheckBoxFor(model => model.IsVegan)
