@@ -22,12 +22,12 @@
     @Html.TextBoxFor(model => model.Calories)
 
 <h6>Characteristics</h6>
-    <p>Spicy: </p>@Html.CheckBoxFor(model => model.IsSpicy)
-    <p>Gluten Free: </p>@Html.CheckBoxFor(model => model.IsGlutenFree)
-    <p>Vegan: </p>@Html.CheckBoxFor(model => model.IsVegan)
-    <p>Vegetarian: </p>@Html.CheckBoxFor(model => model.IsVegetarian)
-    <p>Organic: </p>@Html.CheckBoxFor(model => model.IsOrganic)
-    <p>Contains GMO: </p>@Html.CheckBoxFor(model => model.HasGMOs)
+    <p>Spicy: @Html.CheckBoxFor(model => model.IsSpicy)
+    Gluten Free: @Html.CheckBoxFor(model => model.IsGlutenFree)
+    Vegan: @Html.CheckBoxFor(model => model.IsVegan)
+    Vegetarian: @Html.CheckBoxFor(model => model.IsVegetarian)
+    Organic: @Html.CheckBoxFor(model => model.IsOrganic)
+    Contains GMO: @Html.CheckBoxFor(model => model.HasGMOs)</p>
 
     <p><input type="submit" value="Add new menu item" /></p>
 }
